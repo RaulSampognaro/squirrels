@@ -1,0 +1,22 @@
+Package: squirrels
+Title: Package Pour Analyser Les Écureuils De Central Park
+Version: 0.0.1
+Authors@R: 
+    person("Raul", "Sampognaro", , "raul.sampognaro@sciencespo.fr", role = c("aut", "cre"),
+           comment = c(ORCID = "1234-0000-0000-0000"))
+Description: Ceci est un exemple de package pour analyser de façon
+    exhaustive les données portant sur les écureuils de central park.
+License: MIT + file LICENSE
+Imports: 
+    glue,
+    stringr
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
+Config/fusen/version: 0.5.2
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
