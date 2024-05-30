@@ -48,3 +48,5 @@ check_coordinates(
 )
 #> [1] TRUE TRUE
 ```
+
+Une modif pour voir.

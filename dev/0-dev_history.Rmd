@@ -41,11 +41,11 @@ fusen::init_share_on_github()
 # Start using git
 
 ```{r, eval=FALSE}
-usethis::use_git()
-# Deal with classical files to ignore
-usethis::git_vaccinate()
-# Use main for primary branch
-usethis::git_default_branch_rename()
+usethis::use_git_remote("origin",
+                        url = "https://github.com/RaulSampognaro/squirrels.git",
+                        overwrite = TRUE)
+
+gert::git_push(remote = "origin")
 ```
 
 # Set extra sources of documentation
