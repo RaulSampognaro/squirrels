@@ -1,0 +1,57 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# squirrels
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+L'objectif du package est d'avoir les outils nécessaires pour l'analyse des données des écureuils présents dans le Parc de Central Park à NY.
+
+## Installation
+
+You can install the development version of squirrels like so:
+
+``` r
+# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(squirrels)
+## basic example code
+```
+
+Vous pouvez savoir combien de lignes comporte votre base de données:
+
+```{r cars}
+get_df_nrows(df=iris)
+```
+
+... ou vérifier que les variables de votre base de données sont bien remplies:
+
+```{r examples-check_plus_in_primary_fur_color}
+
+check_plus_in_primary_fur_color(c("Black", "Black+Cinnamon", "Cinnamon", NA))
+
+check_coordinates(
+  latitude = c(40.766, 40.799),
+  longitude = c(-73.96, -73.95)
+)
+```
+

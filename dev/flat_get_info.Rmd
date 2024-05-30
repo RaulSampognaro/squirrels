@@ -1,0 +1,74 @@
+---
+title: "flat_first.Rmd empty"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(glue)
+library(testthat)
+nrow_df<- nrow(iris)
+message(glue("The dataset is composed of {nrow_df} observations"))
+```
+
+<!--
+ You need to run the 'description' chunk in the '0-dev_history.Rmd' file before continuing your code there.
+-->
+
+```{r development-load}
+# Load already included functions if relevant
+pkgload::load_all(export_all = FALSE)
+```
+
+# get_df_nrows
+    
+```{r function-get_df_nrows}
+#' Get a message with number of rows of the dataset you will be working with
+#' 
+#' Description
+#' 
+#' @param df data.frame. The dataset tobe used
+#' @importFrom glue glue 
+#' @return integer. Used for side effet. Outputs a message in the console
+#' 
+#' @export
+get_df_nrows <- function(df){
+  
+  if(isFALSE(inherits(df,"data.frame"))){
+    stop("your input is not a dataframe")
+  }
+  
+    nrow_df<- nrow(df)
+    message(glue("The dataset is composed of {nrow_df} observations"))
+    return(nrow_df)
+}
+```
+  
+```{r example-get_df_nrows}
+get_df_nrows(df=iris)
+get_df_nrows(df=mtcars)
+
+```
+  
+```{r tests-get_df_nrows}
+test_that("get_df_nrows works", {
+  expect_message(
+    object = get_df_nrows(df = mtcars),
+    regexp = "The dataset is composed of 32 observations"
+  )
+  expect_error(get_df_nrows(df = 2),"your input is not a dataframe")
+})
+
+```
+  
+
+
+
+
+
+```{r development-inflate, eval=FALSE}
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+fusen::inflate(flat_file = "dev/flat_get_info.Rmd", vignette_name = "Get info about the dataset.",overwrite = TRUE,open_vignette = FALSE)
+```
