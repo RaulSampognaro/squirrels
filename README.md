@@ -1,4 +1,6 @@
 
+Ce package a été créé dans le cadre d’une formation N2.
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # squirrels
