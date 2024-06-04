@@ -12,7 +12,8 @@ Depends:
 Imports: 
     glue,
     stringr,
-    tools
+    tools,
+    utils
 Suggests: 
     knitr,
     rmarkdown,

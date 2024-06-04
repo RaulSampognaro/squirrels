@@ -26,10 +26,10 @@ flat_export_results.Rmd:
   inflate:
     flat_file: dev/flat_export_results.Rmd
     vignette_name: Exporter les résultats
-    open_vignette: true
+    open_vignette: false
     check: true
     document: true
-    overwrite: ask
+    overwrite: 'yes'
 flat_get_info.Rmd:
   path: dev/flat_get_info.Rmd
   state: active

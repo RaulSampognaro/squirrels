@@ -6,13 +6,24 @@
 \usage{
 save_as_csv(df, chemin)
 }
+\arguments{
+\item{df}{data.frame}
+
+\item{chemin}{Donner le chemin ou le fichier sera enregistre}
+}
 \value{
-Le chemin ou se trouve le fichier créé
+Le chemin ou se trouve le fichier
 }
 \description{
-Cette fonction permet d'exporter les données en format csv
+Cette fonction permet d'exporter les donnees en format csv
 }
 \examples{
+
+mon_dossier_temp_aleatoire <- tempfile(pattern = "toto")
+dir.create(mon_dossier_temp_aleatoire) # crée le dossier temporaire
+mon_chemin <-(file.path(mon_dossier_temp_aleatoire, "monfichier.csv"))
+
 data("data_demo_squirrels")
-save_as_csv(data_demo_squirrels,"data.csv")
+save_as_csv(data_demo_squirrels,mon_chemin)
+unlink(mon_chemin)
 }

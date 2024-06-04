@@ -2,18 +2,27 @@
 
 #' Exportations de données
 #' 
-#' Cette fonction permet d'exporter les données en format csv
+#' Cette fonction permet d'exporter les donnees en format csv
+#'
+#' @param chemin Donner le chemin ou le fichier sera enregistre
+#' @param df data.frame
+#'
+#' @return Le chemin ou se trouve le fichier
 #' 
-#' @return Le chemin ou se trouve le fichier créé
-#' 
-#' @importFrom utils write2.csv 
-#' @importFrom glue glue_collapse
+#' @importFrom utils write.csv2 
+#' @importFrom glue glue_collapse 
 #' 
 #' @export
 #'  
 #' @examples
+#'
+#' mon_dossier_temp_aleatoire <- tempfile(pattern = "toto")
+#' dir.create(mon_dossier_temp_aleatoire) # crée le dossier temporaire
+#' mon_chemin <-(file.path(mon_dossier_temp_aleatoire, "monfichier.csv"))
+#'
 #' data("data_demo_squirrels")
-#' save_as_csv(data_demo_squirrels,"data.csv")
+#' save_as_csv(data_demo_squirrels,mon_chemin)
+#' unlink(mon_chemin)
 
 save_as_csv <- function(df,chemin){
   problem<-NULL
@@ -28,7 +37,7 @@ save_as_csv <- function(df,chemin){
     stop(glue_collapse(problem, "\n"))
   }
 
-  write.csv2(data_test,file="data_test.csv")
+  write.csv2(df,file=chemin)
 
   return(chemin)
   
