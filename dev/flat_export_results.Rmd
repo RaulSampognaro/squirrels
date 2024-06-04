@@ -1,0 +1,87 @@
+---
+title: "flat_export_results.Rmd empty"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(testthat)
+library(utils)
+library(glue)
+data("data_demo_squirrels")
+
+inherits(data_test,"data.frame")
+
+
+```
+
+```{r development-load}
+# Load already included functions if relevant
+pkgload::load_all(export_all = FALSE)
+```
+
+
+# save_as_csv
+    
+```{r function-save_as_csv}
+#' Exportations de données
+#' 
+#' Cette fonction permet d'exporter les données en format csv
+#' 
+#' @return Le chemin ou se trouve le fichier créé
+#' 
+#' @importFrom utils write2.csv 
+#' @importFrom glue glue_collapse
+#' 
+#' @export
+#'  
+
+save_as_csv <- function(df,chemin){
+  problem<-NULL
+  if (isFALSE(inherits(df,"data.frame"))){
+    problem$df<-"df is not a data.frame"
+  } 
+  if (isFALSE(tools::file_ext(chemin)%in% "csv")){
+    problem$chemin<-"chemin is not a correct path"
+  } 
+  
+  if (length(problem)!=0){
+    stop(glue_collapse(problem, "\n"))
+  }
+
+  write.csv2(data_test,file="data_test.csv")
+
+  return(chemin)
+  
+}
+```
+  
+```{r example-save_as_csv}
+data("data_demo_squirrels")
+save_as_csv(data_demo_squirrels,"data.csv")
+```
+  
+```{r tests-save_as_csv}
+test_that("save_as_csv works", {
+  expect_true(inherits(save_as_csv, "function"))
+  expect_error(save_as_csv(2,"test.csv"))
+  expect_error(save_as_csv(data_demo_squirrels,"test.xlsx"))
+})
+```
+  
+
+
+
+```{r development-inflate, eval=FALSE}
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+
+fusen::inflate(
+  flat_file = "dev/flat_export_results.Rmd",
+  vignette_name = "Exporter les résultats"
+)
+
+```
+
+

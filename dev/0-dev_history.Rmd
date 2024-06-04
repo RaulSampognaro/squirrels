@@ -41,6 +41,8 @@ fusen::init_share_on_github()
 # Start using git
 
 ```{r, eval=FALSE}
+usethis::use_git()
+
 usethis::use_git_remote("origin",
                         url = "https://github.com/RaulSampognaro/squirrels.git",
                         overwrite = TRUE)
