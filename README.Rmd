@@ -2,6 +2,8 @@
 output: github_document
 ---
 
+Ce package a été créé dans le cadre d’une formation N2.
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
@@ -57,3 +59,4 @@ check_coordinates(
 
 
 Une modif pour voir.
+
