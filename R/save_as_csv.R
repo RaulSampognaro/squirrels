@@ -24,7 +24,7 @@
 #' save_as_csv(data_demo_squirrels,mon_chemin)
 #' unlink(mon_chemin)
 
-save_as_csv <- function(df,chemin){
+save_as_csv <- function(df,chemin,...){
   problem<-NULL
   if (isFALSE(inherits(df,"data.frame"))){
     problem$df<-"df is not a data.frame"
@@ -37,7 +37,7 @@ save_as_csv <- function(df,chemin){
     stop(glue_collapse(problem, "\n"))
   }
 
-  write.csv2(df,file=chemin)
+  write.csv2(df,file=chemin,...)
 
   return(chemin)
   
