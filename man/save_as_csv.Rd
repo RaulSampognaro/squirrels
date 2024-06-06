@@ -4,7 +4,7 @@
 \alias{save_as_csv}
 \title{Exportations de données}
 \usage{
-save_as_csv(df, chemin)
+save_as_csv(df, chemin, ...)
 }
 \arguments{
 \item{df}{data.frame}
